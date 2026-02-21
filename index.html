@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mahnoor Fatima • Portfolio</title>
+
+<style>
+/* ------------------------------
+   GLOBAL THEME
+------------------------------ */
+:root {
+  --bg: #050509;
+  --text: #ffffff;
+  --accent: #ff4f9a;
+  --accent-soft: rgba(255, 79, 154, 0.2);
+  --nav-bg: rgba(5, 5, 9, 0.8);
+}
+
+body.light {
+  --bg: #f5f5f5;
+  --text: #111111;
+  --accent: #ff4f9a;
+  --accent-soft: rgba(255, 79, 154, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Fade-in animation */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------
+   NAVBAR
+------------------------------ */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(14px);
+  background: var(--nav-bg);
+  z-index: 1000;
+}
+
+.brand {
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--text);
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------
+   HERO WITH JENNIE BACKGROUND
+------------------------------ */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("images/jennie.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+  backdrop-filter: blur(2px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.byline {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.byline span {
+  color: var(--accent);
+}
+
+/* ------------------------------
+   MUSIC PLAYER
+------------------------------ */
+.player {
+  max-width: 420px;
+  margin: 80px auto 60px;
+  padding: 24px 20px 28px;
+  border-radius: 16px;
+  border: 1px solid var(--accent-soft);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+body.light .player {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.player-controls button {
+  background: var(--accent);
+  border: none;
+  padding: 10px 18px;
+  color: #ffffff;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------
+   GALLERY
+------------------------------ */
+.gallery-header {
+  text-align: center;
+  padding: 120px 20px 30px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  padding: 0 20px 60px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.gallery-grid img:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  text-align: center;
+  padding: 30px 20px 40px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <span class="brand">Mahnoor Fatima</span>
+  <div class="nav-right">
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <button class="toggle-btn">Dark / Light</button>
+  </div>
+</nav>
+
+<section class="hero fade" id="home">
+  <div class="hero-content">
+    <h1>My Creative World</h1>
+    <p>Art • Music • Visuals</p>
+    <p class="byline">by <span>Mahnoor Fatima</span></p>
+  </div>
+</section>
+
+<section class="player fade">
+  <h2>Music Player</h2>
+  <p>Listen while you explore the world of Mahnoor Fatima.</p>
+  <div class="player-controls">
+    <button onclick="playMusic()">Play</button>
+    <button onclick="pauseMusic()">Pause</button>
+  </div>
+</section>
+
+<section class="gallery-header fade" id="gallery">
+  <h1>Gallery</h1>
+  <p>Visual moments and creative snapshots by <strong>Mahnoor Fatima</strong>.</p>
+</section>
+
+<section class="gallery-grid fade">
+  <img src="images/img1.jpg">
+  <img src="images/img2.jpg">
+  <img src="images/img3.jpg">
+  <img src="images/img4.jpg">
+  <img src="images/img5.jpg">
+  <img src="images/img6.jpg">
+</section>
+
+<footer>
+  © 2026 Mahnoor Fatima • All rights reserved
+</footer>
+
+<script>
+// DARK / LIGHT MODE
+document.querySelector(".toggle-btn").addEventListener("click", () => {
+  document.body.classList.toggle("light");
+});
+
+// MUSIC PLAYER
+const audio = new Audio("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav");
+
+function playMusic() {
+  audio.play();
+}
+
+function pauseMusic() {
+  audio.pause();
+}
+</script>
+
+</body>
+</html>
